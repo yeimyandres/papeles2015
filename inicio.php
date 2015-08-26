@@ -14,6 +14,7 @@
 
 		<header>
 			<h1>Work Papers 2015</h1>
+			<p class="slogan">Registro y Control de Papeles de Trabajo</p>
 			<figure>
 				<a href="">
 					<img src="" alt="">
@@ -24,11 +25,11 @@
 		<nav>
 			<ul>
 				<li><a href="./secciones/asignaciones">Asignaciones SICA</a></li>
-				<li><a href="">Control Procedimientos</a></li>
-				<li><a href="">Desarrollo Auditoría</a></li>
-				<li><a href="">Anexos Papeles</a></li>
-				<li><a href="">Conclusiones Procedimientos</a></li>
-				<li><a href="">Traslados hallazgos</a></li>
+				<li><a href="./secciones/procedimientos">Control Procedimientos</a></li>
+				<li><a href="./secciones/desarrollo">Desarrollo Auditoría</a></li>
+				<li><a href="./secciones/anexos">Anexos Papeles</a></li>
+				<li><a href="./secciones/conclusiones">Conclusiones Procedimientos</a></li>
+				<li><a href="./secciones/traslados">Traslados hallazgos</a></li>
 			</ul>
 		</nav>
 

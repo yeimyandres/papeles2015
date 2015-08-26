@@ -7,13 +7,16 @@ negro = rgb(0,0,0)
 
 *
 	font-family helvetica
-	font-size 16px
 
 h1
 h2
 figure
+p
 ul
 	margin 0
+
+body
+	font-size 16px
 
 footer
 	border-top 2px solid gris
@@ -30,18 +33,24 @@ form
 	text-align center
 	input
 		display block
+		font-size .9em
 		margin 0 auto 1em auto
-		padding 5px 10px
+		padding 3px 5px
 		width 250px
 	label
 		display block
+		font-size .9em
 
 header
+	background gris
 	border-bottom 2px solid gris
 	padding .5em 1em .5em 0
 	h1
-		color gris
+	p.slogan
+		color blanco
 		text-align right
+	p.slogan
+		font-size 1.4em
 
 nav
 	float left
@@ -62,13 +71,36 @@ nav
 					background gris
 					color blanco
 
+#atregistradas
+	table
+		display block
+		margin 4em auto 0 auto
+		width 90%
+		td
+		th
+			border 1px solid gris
+			padding 3px
+		td
+			&.id
+				width 4%
+			&.actividad
+				width 39%
+			&.ente
+				width 20%
+			&.supervisor
+				width 12%
+			&.fecini
+				width 12%
+			&.fecfin
+				width 12%
+
 .contenedor
 	float right
-	padding 2em 0
+	padding 1em 0 2em 0
 	text-align center
 	width 79%
 	h2
-		font-size 1.5em
+		font-size 1.3em
 		margin 1em 0
 		text-decoration underline		
 
