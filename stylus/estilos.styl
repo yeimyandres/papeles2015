@@ -1,0 +1,88 @@
+@import "normalize.css"
+
+azul = rgb(45,140,160)
+blanco = rgb(255,255,255)
+gris = rgb(120,125,130)
+negro = rgb(0,0,0)
+
+*
+	font-family helvetica
+	font-size 16px
+
+h1
+h2
+figure
+ul
+	margin 0
+
+footer
+	border-top 2px solid gris
+	clear both
+	padding .5em 1em .5em 0
+	p
+		color gris
+		font-size .8em
+		font-style italic
+		margin 0
+		text-align right
+
+form
+	text-align center
+	input
+		display block
+		margin 0 auto 1em auto
+		padding 5px 10px
+		width 250px
+	label
+		display block
+
+header
+	border-bottom 2px solid gris
+	padding .5em 1em .5em 0
+	h1
+		color gris
+		text-align right
+
+nav
+	float left
+	width 20%
+	ul
+		border-right 2px solid gris
+		border-bottom 2px solid gris
+		list-style none
+		padding 0
+		li
+			text-align center
+			a
+				color gris
+				display block
+				padding 10px 0
+				text-decoration none
+				&:hover
+					background gris
+					color blanco
+
+.contenedor
+	float right
+	padding 2em 0
+	text-align center
+	width 79%
+	h2
+		font-size 1.5em
+		margin 1em 0
+		text-decoration underline		
+
+.inicio
+	float right
+	text-align center
+	width 79%
+	article
+		padding 1em 0
+		h2
+			font-size 1.5em
+			margin 1em 0
+		p
+			font-size 1.2em
+			margin 1em auto
+			text-align justify
+			width 50%	
