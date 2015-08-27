@@ -9,7 +9,7 @@
 	if($resultado = mysqli_query($enlace,$cadenaSQL))
 	{
 		if (mysqli_affected_rows($enlace)>=1){
-			echo "<select id='cboobjetivos' name='cboobjetivos'>";
+			echo "<select class='largo' id='cboobjetivos' name='cboobjetivos'>";
 			echo "<option value='0'>Seleccione un objetivo existente</option>";
 			while($registro=mysqli_fetch_row($resultado)){
 				echo "<option value='$registro[0]'>";

@@ -61,7 +61,15 @@
 				}else{
 					traerobjetivos(idasignacion);
 				}
-			});	
+			});
+			$("#cboasignacioneseno").change(function(){
+				var idasignacion = $(this).val();
+				if(idasignacion==0){
+					$("#controlesenobjetivos").css("display","none");
+				}else{
+					$("#controlesenobjetivos").css("display","block");
+				}				
+			});
 		});
 
 	</script>

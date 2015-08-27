@@ -13,8 +13,8 @@
 		if($resultado = mysqli_query($enlace,$cadenaSQL))
 		{
 			if (mysqli_affected_rows($enlace)>=1){
-				echo "<label for='cboasignaciones'>Asignaciones en SICA</label>";
-				echo "<select id='cboasignaciones' name='cboasignaciones'>";
+				echo "<label for='cboasignacioneseno'>Asignaciones en SICA</label>";
+				echo "<select class='largo' id='cboasignacioneseno' name='cboasignacioneseno'>";
 				echo "<option value='0'>Seleccione una asignacion existente</option>";
 				while($registro=mysqli_fetch_row($resultado)){
 					echo "<option value='$registro[0]'>";
@@ -28,13 +28,17 @@
 			}
 		}
 	?>
-	<label for="txtdescobjetivo">Descripción del Objetivo</label>
-	<input type="text" id="txtdescobjetivo" name="txtdescobjetivo" />
+	<div id="controlesenobjetivos">
+		<label for="txtnumobjetivo">Objetivo No.</label>
+		<input class="corto" type="text" id="txtnumobjetivo" name="txtnumobjetivo" />
+		<label for="txtdescobjetivo">Descripción del Objetivo</label>
+		<textarea name="txtdescobjetivocobjetivo" rows="7" class="largo"></textarea>		
+	</div>
 </form>
 <div id="objregistrados" class="tablaresumen">
 	<?php
 
-		$cadenaSQL = "SELECT a.idasignacion, a.enteasignacion, a.actividadasignacion, o.descobjetivo FROM objetivos AS o, asignaciones AS a WHERE a.idasignacion=o.idasignacion ORDER BY o.idasignacion, o.idobjetivo";
+		$cadenaSQL = "SELECT a.idasignacion, a.enteasignacion, a.actividadasignacion, o.descobjetivo, o.numobjetivo FROM objetivos AS o, asignaciones AS a WHERE a.idasignacion=o.idasignacion ORDER BY o.idasignacion, o.idobjetivo";
 
 		if($resultado = mysqli_query($enlace,$cadenaSQL))
 		{
@@ -52,7 +56,7 @@
 					echo "<td class='id'>".$registro[0]."</td>";
 					echo "<td class='ente'>".utf8_encode($registro[1])."</td>";
 					echo "<td class='actividad'>".utf8_encode($registro[2])."</td>";
-					echo "<td class='objetivo'>".utf8_encode($registro[3])."</td>";
+					echo "<td class='objetivo'>Objetivo ".$registro[4].": ".utf8_encode($registro[3])."</td>";
 					echo "</tr>";
 				}
 				echo "</table>";

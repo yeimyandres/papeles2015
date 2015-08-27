@@ -14,7 +14,7 @@
 		{
 			if (mysqli_affected_rows($enlace)>=1){
 				echo "<label for='cboasignacionesenp'>Asignaciones en SICA</label>";
-				echo "<select id='cboasignacionesenp' name='cboasignacionesenp'>";
+				echo "<select class='largo' id='cboasignacionesenp' name='cboasignacionesenp'>";
 				echo "<option value='0'>Seleccione una asignacion existente</option>";
 				while($registro=mysqli_fetch_row($resultado)){
 					echo "<option value='$registro[0]'>";
@@ -33,19 +33,21 @@
 	</div>
 
 	<div id="camposdetextoenproc">
-		<label for="txtdescprocedimiento">Procedimiento</label>
-		<textarea name="txtdescprocedimiento" id="txtdescprocedimiento" cols="30" rows="10"></textarea>
+		<label for="txtnumprocedimiento">Procedimiento No.</label>
+		<input type="text" class="corto" id="txtnumprocedimiento" name="txtnumprocedimiento" />
+		<label for="txtdescprocedimiento">Descripción del Procedimiento</label>
+		<textarea class="largo" name="txtdescprocedimiento" id="txtdescprocedimiento" rows="7"></textarea>
 		<label for="txtfeciniprocedimiento">Fecha inicial</label>
-		<input type="date" id="txtfeciniprocedimiento" name="txtfeciniprocedimiento" />
+		<input class="corto" type="date" id="txtfeciniprocedimiento" name="txtfeciniprocedimiento" />
 		<label for="txtfecfinprocedimiento">Fecha final</label>
-		<input type="date" id="txtfecfinprocedimiento" name="txtfecfinprocedimiento" />
+		<input class="corto" type="date" id="txtfecfinprocedimiento" name="txtfecfinprocedimiento" />
 	</div>
 
 </form>
 <div id="procregistrados" class="tablaresumen">
 	<?php
 
-		$cadenaSQL = "SELECT a.idasignacion, a.enteasignacion, o.descobjetivo, p.descprocedimiento FROM procedimientos AS p, objetivos AS o, asignaciones AS a WHERE a.idasignacion=o.idasignacion AND o.idobjetivo=p.idobjetivo ORDER BY o.idasignacion, o.idobjetivo";
+		$cadenaSQL = "SELECT a.idasignacion, a.enteasignacion, o.numobjetivo, o.descobjetivo, p.numprocedimiento, p.descprocedimiento FROM procedimientos AS p, objetivos AS o, asignaciones AS a WHERE a.idasignacion=o.idasignacion AND o.idobjetivo=p.idobjetivo ORDER BY o.idasignacion, o.idobjetivo";
 
 		if($resultado = mysqli_query($enlace,$cadenaSQL))
 		{
@@ -60,8 +62,8 @@
 				while($registro = mysqli_fetch_row($resultado)){
 					echo "<tr>";
 					echo "<td class='id'>".$registro[0].": ".utf8_encode($registro[1])."</td>";
-					echo "<td class='objetivo'>".utf8_encode($registro[2])."</td>";
-					echo "<td class='procedimiento'>".utf8_encode($registro[3])."</td>";
+					echo "<td class='objetivo'>Objetivo ".$registro[2].": ".utf8_encode($registro[3])."</td>";
+					echo "<td class='procedimiento'>".utf8_encode($registro[4]).": ".utf8_encode($registro[5])."</td>";
 					echo "</tr>";
 				}
 				echo "</table>";

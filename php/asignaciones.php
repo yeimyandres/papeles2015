@@ -1,17 +1,17 @@
 <h2>Ingreso de Asignaciones SICA</h2>
 <form action="">
 	<label for="txtidat">numero de AT</label>
-	<input type="text" id="txtidat" name="txtidat" />
-	<label for="txtasuntoat">Actividad AT</label>
-	<input type="text" id="txtasuntoat" name="txtasuntoat" />
-	<label for="txtdescat">Ente AT</label>
-	<input type="text" id="txtdescat" name="txtdescat" />
-	<label for="txtvigat">Supervisor Encargado</label>
-	<input type="text" id="" name="" />
+	<input class="corto" type="text" id="txtidat" name="txtidat" />
+	<label for="txtactividadat">Actividad AT</label>
+	<textarea class="largo" name="txtactividadat" id="txtactividadat" rows="7"></textarea>
+	<label for="txtenteat">Ente AT</label>
+	<input class="largo" type="text" id="txtenteat" name="txtenteat" />
+	<label for="txtsupervisor">Supervisor Encargado</label>
+	<input class="largo" type="text" id="txtsupervisor" name="txtsupervisor" />
 	<label for="txtfecini">Fecha Inicio</label>
-	<input type="date" id="txtfecini" name="txtfecini" />
+	<input class="corto" type="date" id="txtfecini" name="txtfecini" />
 	<label for="txtfecfin">Fecha Finalización</label>
-	<input type="date" id="txtfecfin" name="txtfecfin" />
+	<input class="corto" type="date" id="txtfecfin" name="txtfecfin" />
 </form>
 <div id="atregistradas" class="tablaresumen">
 	<?php

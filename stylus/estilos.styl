@@ -38,7 +38,10 @@ form
 		font-size .9em
 		margin 0 auto 1em auto
 		padding 3px 5px
-		width 350px
+		&.corto
+			width 140px
+		&.largo
+			width 350px
 	label
 		display block
 		font-size .9em
@@ -112,7 +115,7 @@ nav
 	margin 0 auto 2em auto
 	padding 5px 10px
 	width 70%
-	h3
+	h4
 		margin 0
 
 #objregistrados
@@ -140,6 +143,9 @@ nav
 			&.objetivo
 				text-align justify
 				width 42%				
+
+#controlesenobjetivos
+	display none
 
 .contenedor
 	float right
