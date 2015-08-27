@@ -13,7 +13,7 @@
 	<label for="txtfecfin">Fecha Finalización</label>
 	<input type="date" id="txtfecfin" name="txtfecfin" />
 </form>
-<div id="atregistradas">
+<div id="atregistradas" class="tablaresumen">
 	<?php
 
 		include './inc/conexion.php';

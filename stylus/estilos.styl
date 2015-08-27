@@ -32,14 +32,18 @@ footer
 form
 	text-align center
 	input
+	select
 		display block
 		font-size .9em
 		margin 0 auto 1em auto
 		padding 3px 5px
+	input
 		width 250px
 	label
 		display block
 		font-size .9em
+	select
+		width 266px
 
 header
 	background gris
@@ -73,17 +77,11 @@ nav
 
 #atregistradas
 	table
-		display block
-		margin 4em auto 0 auto
-		width 90%
-		td
-		th
-			border 1px solid gris
-			padding 3px
 		td
 			&.id
 				width 4%
 			&.actividad
+				text-align justify
 				width 39%
 			&.ente
 				width 20%
@@ -93,6 +91,32 @@ nav
 				width 12%
 			&.fecfin
 				width 12%
+
+#objregistrados
+	table
+		td
+			&.id
+				width 4%
+			&.actividad
+				text-align justify
+				width 35%
+			&.ente
+				width 26%
+			&.objetivo
+				text-align justify
+				width 35%
+
+#procregistrados
+	table
+		td
+			&.id
+				width 16%
+			&.procedimiento
+				text-align justify
+				width 42%
+			&.objetivo
+				text-align justify
+				width 42%				
 
 .contenedor
 	float right
@@ -117,4 +141,14 @@ nav
 			font-size 1.2em
 			margin 1em auto
 			text-align justify
-			width 50%	
+			width 50%
+
+.tablaresumen
+	table
+		display block
+		margin 4em auto 0 auto
+		width 85%
+		td
+		th
+			border 1px solid gris
+			padding 6px 10px

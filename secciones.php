@@ -25,6 +25,7 @@
 		<nav>
 			<ul>
 				<li><a href="../secciones/asignaciones">Asignaciones SICA</a></li>
+				<li><a href="../secciones/objetivos">Objetivos Asignación</a></li>
 				<li><a href="../secciones/procedimientos">Control Procedimientos</a></li>
 				<li><a href="../secciones/desarrollo">Desarrollo Auditoría</a></li>
 				<li><a href="../secciones/anexos">Anexos Papeles</a></li>
