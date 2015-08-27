@@ -13,13 +13,13 @@
 	<body>
 
 		<header>
-			<h1>Work Papers 2015</h1>
-			<p class="slogan">Registro y Control de Papeles de Trabajo</p>
 			<figure>
-				<a href="">
-					<img src="" alt="">
+				<a>
+					<img src="./img/logo.png" alt="WorkPapers">
 				</a>
 			</figure>
+			<h1>Work Papers 2015</h1>
+			<p class="slogan">Registro y Control de Papeles de Trabajo</p>
 		</header>
 
 		<nav>
