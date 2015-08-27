@@ -13,13 +13,15 @@
 			echo "<option value='0'>Seleccione un objetivo existente</option>";
 			while($registro=mysqli_fetch_row($resultado)){
 				echo "<option value='$registro[0]'>";
-				echo $registro[0].": ".utf8_encode($registro[4]);
+				echo "Objetivo número ".utf8_encode($registro[2])." de AT ".$idasignacion;
 				echo "</option>";
 			}
 			echo "</select>";
+			echo "<div id='contenidoobjetivo'></div>";
 		}else{
-			echo "<p>No existen objetivos registrados para la asignacion seleccionada</p>";
-			echo "<p>Ingrese por la opcion Objetivos Asignación para adicionar objetivos</p>";
+			echo "";
 		}
+	}else{
+		echo "";
 	}
 ?>

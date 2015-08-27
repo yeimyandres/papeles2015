@@ -13,12 +13,12 @@
 		if($resultado = mysqli_query($enlace,$cadenaSQL))
 		{
 			if (mysqli_affected_rows($enlace)>=1){
-				echo "<label for='cboasignaciones'>Asignaciones en SICA</label>";
-				echo "<select id='cboasignaciones' name='cboasignaciones'>";
+				echo "<label for='cboasignacionesenp'>Asignaciones en SICA</label>";
+				echo "<select id='cboasignacionesenp' name='cboasignacionesenp'>";
 				echo "<option value='0'>Seleccione una asignacion existente</option>";
 				while($registro=mysqli_fetch_row($resultado)){
 					echo "<option value='$registro[0]'>";
-					echo $registro[0].": ".utf8_encode($registro[4]);
+					echo "AT ".$registro[0].": ".utf8_encode($registro[4]);
 					echo "</option>";
 				}
 				echo "</select>";
@@ -28,12 +28,19 @@
 			}
 		}
 	?>
-	<div class="listaobjetivos">
+	<div id="listaobjetivosenproc">
 		
 	</div>
-	<div class="camposdetexto">
-		
+
+	<div id="camposdetextoenproc">
+		<label for="txtdescprocedimiento">Procedimiento</label>
+		<textarea name="txtdescprocedimiento" id="txtdescprocedimiento" cols="30" rows="10"></textarea>
+		<label for="txtfeciniprocedimiento">Fecha inicial</label>
+		<input type="date" id="txtfeciniprocedimiento" name="txtfeciniprocedimiento" />
+		<label for="txtfecfinprocedimiento">Fecha final</label>
+		<input type="date" id="txtfecfinprocedimiento" name="txtfecfinprocedimiento" />
 	</div>
+
 </form>
 <div id="procregistrados" class="tablaresumen">
 	<?php

@@ -50,4 +50,20 @@
 
 	</body>
 
+	<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="../js/procedimientos.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#cboasignacionesenp").change(function(){
+				var idasignacion = $(this).val();
+				if(idasignacion==0){
+					reiniciarformularioproc();
+				}else{
+					traerobjetivos(idasignacion);
+				}
+			});	
+		});
+
+	</script>
+
 </html>
