@@ -12,6 +12,8 @@
 	<input class="corto" type="date" id="txtfecini" name="txtfecini" />
 	<label for="txtfecfin">Fecha Finalización</label>
 	<input class="corto" type="date" id="txtfecfin" name="txtfecfin" />
+	<input type="button" id="btnregistrarat" name="btnregistrarat" value="Registrar Asignación" />
+	<input type="reset" value="Limpiar campos" />
 </form>
 <div id="atregistradas" class="tablaresumen">
 	<?php

@@ -51,6 +51,7 @@
 	</body>
 
 	<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="../js/asignaciones.js"></script>
 	<script type="text/javascript" src="../js/procedimientos.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -69,6 +70,15 @@
 				}else{
 					$("#controlesenobjetivos").css("display","block");
 				}				
+			});
+			$("#btnregistrarat").click(function(){
+				var cadena = "idat="+$("#txtidat").val();
+				cadena += "&actividad="+$("#txtactividadat").val();
+				cadena += "&ente="+$("#txtenteat").val();
+				cadena += "&supervisor="+$("#txtsupervisor").val();
+				cadena += "&fecini="+$("#txtfecini").val();
+				cadena += "&fecfin="+$("#txtfecfin").val();
+				registrarasignacion(cadena);
 			});
 		});
 

@@ -32,7 +32,9 @@
 		<label for="txtnumobjetivo">Objetivo No.</label>
 		<input class="corto" type="text" id="txtnumobjetivo" name="txtnumobjetivo" />
 		<label for="txtdescobjetivo">Descripción del Objetivo</label>
-		<textarea name="txtdescobjetivocobjetivo" rows="7" class="largo"></textarea>		
+		<textarea name="txtdescobjetivocobjetivo" rows="7" class="largo"></textarea>
+		<input type="button" id="btnregistrarobj" name="btnregistrarobj" value="Registrar Objetivo" />
+		<input type="reset" value="Limpiar campos" />
 	</div>
 </form>
 <div id="objregistrados" class="tablaresumen">

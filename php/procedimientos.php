@@ -41,6 +41,8 @@
 		<input class="corto" type="date" id="txtfeciniprocedimiento" name="txtfeciniprocedimiento" />
 		<label for="txtfecfinprocedimiento">Fecha final</label>
 		<input class="corto" type="date" id="txtfecfinprocedimiento" name="txtfecfinprocedimiento" />
+		<input type="button" id="btnregistrarproc" name="btnregistrarproc" value="Registrar Procedimiento" />
+		<input type="reset" value="Limpiar campos" />		
 	</div>
 
 </form>

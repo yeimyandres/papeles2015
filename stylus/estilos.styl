@@ -2,7 +2,9 @@
 
 azul = rgb(45,140,160)
 blanco = rgb(255,255,255)
+color_logo = rgb(239,240,246)
 gris = rgb(120,125,130)
+gris_claro = rgb(190,190,220)
 negro = rgb(0,0,0)
 
 *
@@ -45,6 +47,15 @@ form
 	label
 		display block
 		font-size .9em
+	input
+		&[type="button"]
+		&[type="reset"]
+			background gris_claro
+			border none
+			display inline-block
+			margin 2em 1em
+			padding 10px
+			width 200px
 
 header
 	background gris
@@ -53,10 +64,10 @@ header
 	padding .5em 1em .5em 0
 	h1
 	p.slogan
-		color blanco
+		color color_logo
 		text-align right
 	figure
-		border-right 2px solid blanco
+		border-right 2px solid color_logo
 		float left
 		margin 0 0 0 2em
 		padding 0 1em 0 0
