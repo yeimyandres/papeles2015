@@ -7,11 +7,8 @@ function registrarasignacion(cadena)
 		data: cadena,
 	})
 	.done(function(respuesta) {
-		if (respuesta=="S"){
-
-		}else{
-
-		}
+		alert("Registro adicionado exitosamente");
+		cargartablaresumen();
 	})
 	.fail(function() {
 		console.log("error");
@@ -21,19 +18,14 @@ function registrarasignacion(cadena)
 function cargartablaresumen()
 {
 	$.ajax({
-		url: '/path/to/file',
-		type: 'default GET (Other values: POST)',
-		dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
-		data: {param1: 'value1'},
+		url: '../php/cargartablaasignaciones.php',
+		type: 'post',
+		dataType: 'html',
 	})
-	.done(function() {
-		console.log("success");
+	.done(function(respuesta) {
+		$("#atregistradas").html(respuesta);
 	})
 	.fail(function() {
 		console.log("error");
-	})
-	.always(function() {
-		console.log("complete");
-	});
-	
+	});	
 }
