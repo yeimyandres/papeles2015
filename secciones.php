@@ -93,11 +93,12 @@
 					url: '../php/eliminarasignacion.php',
 					type: 'post',
 					dataType: 'html',
-					data: "id="+idat,
+					data: "idat="+idat,
 				})
 				.done(function(respuesta) {
 					alert(respuesta);
 					cargartablaasignaciones();
+					limpiarasignacion();
 				})
 				.fail(function() {
 					console.log("error");
@@ -105,19 +106,7 @@
 			});
 			$(".linkborraro").click(function(){
 				var idobjetivo = $(this).attr("id");
-				$.ajax({
-					url: '../php/eliminarobjetivo.php',
-					type: 'post',
-					dataType: 'html',
-					data: "id="+idobjetivo,
-				})
-				.done(function(respuesta) {
-					alert(respuesta);
-					cargartablaobjetivos();
-				})
-				.fail(function() {
-					console.log("error");
-				});				
+				borrarobjetivo(idobjetivo);
 			});			
 		});
 

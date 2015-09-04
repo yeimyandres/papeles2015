@@ -40,7 +40,7 @@
 <div id="objregistrados" class="tablaresumen">
 	<?php
 
-		$cadenaSQL = "SELECT a.idasignacion, a.enteasignacion, a.actividadasignacion, o.descobjetivo, o.numobjetivo, o.idobjetivo FROM objetivos AS o, asignaciones AS a WHERE a.idasignacion=o.idasignacion ORDER BY o.idasignacion, o.idobjetivo";
+		$cadenaSQL = "SELECT a.idasignacion, a.enteasignacion, a.actividadasignacion, o.descobjetivo, o.numobjetivo, o.idobjetivo FROM objetivos AS o, asignaciones AS a WHERE a.idasignacion=o.idasignacion ORDER BY o.idasignacion, o.numobjetivo";
 
 		if($resultado = mysqli_query($enlace,$cadenaSQL))
 		{

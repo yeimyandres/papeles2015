@@ -3,11 +3,11 @@
 	include "../inc/conexion.php";
 	$enlace = Conectarse();
 
-	$idat = $_POST["idat"];
+	$idobj = $_POST["idobj"];
 
-	$cadenaSQL = "DELETE FROM asignaciones WHERE idasignacion=".$idat;
+	$cadenaSQL = "DELETE FROM objetivos WHERE idobjetivo=".$idobj;
 	if($resultado = mysqli_query($enlace,$cadenaSQL)){
-		echo "Asignación eliminada con éxito";
+		echo "Objetivo eliminado con éxito";
 	}else{
 		echo "Hubo un error!. Contacte al administrador";
 	}
