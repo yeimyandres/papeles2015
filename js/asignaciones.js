@@ -1,3 +1,14 @@
+function limpiarasignacion()
+{
+	$("#txtidat").val("");
+	$("#txtactividadat").val("");
+	$("#txtenteat").val("");
+	$("#txtsupervisor").val("");
+	$("#txtfecini").val("");
+	$("#txtfecfin").val("");
+	$("#txtidat").focus();
+}
+
 function registrarasignacion(cadena)
 {
 	$.ajax({
@@ -8,14 +19,14 @@ function registrarasignacion(cadena)
 	})
 	.done(function(respuesta) {
 		alert("Registro adicionado exitosamente");
-		cargartablaresumen();
+		cargartablaasignacion();
 	})
 	.fail(function() {
 		console.log("error");
 	});	
 }
 
-function cargartablaresumen()
+function cargartablaasignacion()
 {
 	$.ajax({
 		url: '../php/cargartablaasignaciones.php',
@@ -24,6 +35,7 @@ function cargartablaresumen()
 	})
 	.done(function(respuesta) {
 		$("#atregistradas").html(respuesta);
+		limpiarasignacion();
 	})
 	.fail(function() {
 		console.log("error");

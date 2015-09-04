@@ -52,6 +52,7 @@
 
 	<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="../js/asignaciones.js"></script>
+	<script type="text/javascript" src="../js/objetivos.js"></script>
 	<script type="text/javascript" src="../js/procedimientos.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -80,6 +81,44 @@
 				cadena += "&fecfin="+$("#txtfecfin").val();
 				registrarasignacion(cadena);
 			});
+			$("#btnregistrarobj").click(function(){
+				var cadena = "idasignacion="+$("#cboasignacioneseno").val();
+				cadena += "&numobjetivo="+$("#txtnumobjetivo").val();
+				cadena += "&descobjetivo="+$("#txtdescobjetivo").val();
+				registrarobjetivo(cadena);
+			});			
+			$(".linkborrara").click(function(){
+				var idat = $(this).attr("id");
+				$.ajax({
+					url: '../php/eliminarasignacion.php',
+					type: 'post',
+					dataType: 'html',
+					data: "id="+idat,
+				})
+				.done(function(respuesta) {
+					alert(respuesta);
+					cargartablaasignaciones();
+				})
+				.fail(function() {
+					console.log("error");
+				});				
+			});
+			$(".linkborraro").click(function(){
+				var idobjetivo = $(this).attr("id");
+				$.ajax({
+					url: '../php/eliminarobjetivo.php',
+					type: 'post',
+					dataType: 'html',
+					data: "id="+idobjetivo,
+				})
+				.done(function(respuesta) {
+					alert(respuesta);
+					cargartablaobjetivos();
+				})
+				.fail(function() {
+					console.log("error");
+				});				
+			});			
 		});
 
 	</script>

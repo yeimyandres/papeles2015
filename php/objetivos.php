@@ -32,7 +32,7 @@
 		<label for="txtnumobjetivo">Objetivo No.</label>
 		<input class="corto" type="text" id="txtnumobjetivo" name="txtnumobjetivo" />
 		<label for="txtdescobjetivo">Descripción del Objetivo</label>
-		<textarea name="txtdescobjetivocobjetivo" rows="7" class="largo"></textarea>
+		<textarea name="txtdescobjetivo" id="txtdescobjetivo" rows="7" class="largo"></textarea>
 		<input type="button" id="btnregistrarobj" name="btnregistrarobj" value="Registrar Objetivo" />
 		<input type="reset" value="Limpiar campos" />
 	</div>
@@ -40,7 +40,7 @@
 <div id="objregistrados" class="tablaresumen">
 	<?php
 
-		$cadenaSQL = "SELECT a.idasignacion, a.enteasignacion, a.actividadasignacion, o.descobjetivo, o.numobjetivo FROM objetivos AS o, asignaciones AS a WHERE a.idasignacion=o.idasignacion ORDER BY o.idasignacion, o.idobjetivo";
+		$cadenaSQL = "SELECT a.idasignacion, a.enteasignacion, a.actividadasignacion, o.descobjetivo, o.numobjetivo, o.idobjetivo FROM objetivos AS o, asignaciones AS a WHERE a.idasignacion=o.idasignacion ORDER BY o.idasignacion, o.idobjetivo";
 
 		if($resultado = mysqli_query($enlace,$cadenaSQL))
 		{
@@ -52,6 +52,7 @@
 				echo "<th>Ente</th>";
 				echo "<th>Actividad</th>";
 				echo "<th>Objetivo</th>";
+				echo "<th>Eliminar</th>";
 				echo "</tr>";
 				while($registro = mysqli_fetch_row($resultado)){
 					echo "<tr>";
@@ -59,6 +60,7 @@
 					echo "<td class='ente'>".utf8_encode($registro[1])."</td>";
 					echo "<td class='actividad'>".utf8_encode($registro[2])."</td>";
 					echo "<td class='objetivo'>Objetivo ".$registro[4].": ".utf8_encode($registro[3])."</td>";
+					echo "<td class='fecini'><a class='linkborraro' id='$registro[5]'>Borrar</a></td>";
 					echo "</tr>";
 				}
 				echo "</table>";
