@@ -46,7 +46,7 @@
 					echo "<td class='supervisor'>".utf8_encode($registro[5])."</td>";
 					echo "<td class='fecini'>".$registro[1]."</td>";
 					echo "<td class='fecfin'>".$registro[2]."</td>";
-					echo "<td class='fecini'><a class='linkborrar' id='$registro[0]'>Borrar</a></td>";
+					echo "<td class='fecini'><a class='linkborrara' id='$registro[0]'>Borrar</a></td>";
 					echo "</tr>";
 				}
 				echo "</table>";

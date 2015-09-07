@@ -5,7 +5,7 @@
 
 ?>
 
-<h2>Observaciones asociadas a las AT</h2>
+<h2>Procedimientos asociados a las AT</h2>
 <form action="">
 	<?php
 
@@ -47,31 +47,5 @@
 
 </form>
 <div id="procregistrados" class="tablaresumen">
-	<?php
 
-		$cadenaSQL = "SELECT a.idasignacion, a.enteasignacion, o.numobjetivo, o.descobjetivo, p.numprocedimiento, p.descprocedimiento FROM procedimientos AS p, objetivos AS o, asignaciones AS a WHERE a.idasignacion=o.idasignacion AND o.idobjetivo=p.idobjetivo ORDER BY o.idasignacion, o.idobjetivo";
-
-		if($resultado = mysqli_query($enlace,$cadenaSQL))
-		{
-			if (mysqli_affected_rows($enlace)>=1){
-
-				echo "<table>";
-				echo "<tr>";
-				echo "<th>Id AT</th>";
-				echo "<th>Objetivo</th>";
-				echo "<th>procedimiento</th>";
-				echo "</tr>";
-				while($registro = mysqli_fetch_row($resultado)){
-					echo "<tr>";
-					echo "<td class='id'>".$registro[0].": ".utf8_encode($registro[1])."</td>";
-					echo "<td class='objetivo'>Objetivo ".$registro[2].": ".utf8_encode($registro[3])."</td>";
-					echo "<td class='procedimiento'>".utf8_encode($registro[4]).": ".utf8_encode($registro[5])."</td>";
-					echo "</tr>";
-				}
-				echo "</table>";
-
-			}
-		}
-
-	?>
 </div>

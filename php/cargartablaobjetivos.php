@@ -4,7 +4,9 @@
 
 	$enlace = Conectarse();
 
-	$cadenaSQL = "SELECT a.idasignacion, a.enteasignacion, a.actividadasignacion, o.descobjetivo, o.numobjetivo, o.idobjetivo FROM objetivos AS o, asignaciones AS a WHERE a.idasignacion=o.idasignacion ORDER BY o.idasignacion, o.numobjetivo";
+	$idat = $_POST["idat"];
+
+	$cadenaSQL = "SELECT a.idasignacion, a.enteasignacion, a.actividadasignacion, o.descobjetivo, o.numobjetivo, o.idobjetivo FROM objetivos AS o, asignaciones AS a WHERE o.idasignacion='$idat' AND a.idasignacion=o.idasignacion ORDER BY o.idasignacion, o.numobjetivo";
 
 	if($resultado = mysqli_query($enlace,$cadenaSQL))
 	{

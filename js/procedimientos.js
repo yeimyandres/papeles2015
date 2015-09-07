@@ -1,6 +1,11 @@
 function reiniciarformularioproc(){
 	$("#listaobjetivosenproc").hide();
+	$("#txtnumprocedimiento").val("");
+	$("#txtdescprocedimiento").val("");
+	$("#txtfeciniprocedimiento").val("");
+	$("#txtfecfinprocedimiento").val("");
 	$("#camposdetextoenproc").hide();
+	$("#procregistrados").hide();
 }
 
 function traerobjetivos(idasignacion){
@@ -17,8 +22,9 @@ function traerobjetivos(idasignacion){
 			$("#cboobjetivos").change(function(){
 				var idobjetivo = $(this).val();
 				if (idobjetivo==0){
-					$("#contenidoobjetivo").css("display","none");
-					$("#camposdetextoenproc").css("display","none");
+					$("#contenidoobjetivo").hide();
+					$("#camposdetextoenproc").hide();
+					$("procregistrados").hide();
 				}else{
 					$.ajax({
 						url: '../php/presentarobjetivo.php',
@@ -28,8 +34,10 @@ function traerobjetivos(idasignacion){
 					})
 					.done(function(resultado2) {
 						$("#contenidoobjetivo").html(resultado2);
-						$("#contenidoobjetivo").css("display","block");
-						$("#camposdetextoenproc").css("display","block");
+						$("#contenidoobjetivo").show();
+						$("#camposdetextoenproc").show();
+						cargartablaprocedimientos(idasignacion,idobjetivo);
+						$("#procregistrados").show();
 					})
 					.fail(function() {
 						console.log("error");
@@ -42,6 +50,60 @@ function traerobjetivos(idasignacion){
 	})
 	.fail(function() {
 		console.log("error");
-	});
-	
+	});	
+}
+
+function borrarprocedimiento(idprocedimiento)
+{
+	$.ajax({
+		url: '../php/eliminarprocedimiento.php',
+		type: 'post',
+		dataType: 'html',
+		data: "idproc="+idprocedimiento,
+	})
+	.done(function(respuesta) {
+		alert(respuesta);
+		cargartablaprocedimientos($("#cboasignacionesenp").val(),$("#cboobjetivos").val());
+	})
+	.fail(function() {
+		console.log("error");
+	});				
+}
+
+function registrarprocedimiento(cadena)
+{
+	$.ajax({
+		url: '../php/registrarprocedimiento.php',
+		type: 'post',
+		dataType: 'html',
+		data: cadena,
+	})
+	.done(function(respuesta) {
+		alert("Registro adicionado exitosamente");
+		reiniciarformularioproc();
+		$("#cboasignacionesenp").val("0");
+	})
+	.fail(function() {
+		console.log("error");
+	});	
+}
+
+function cargartablaprocedimientos(idat,idobjetivo)
+{
+	$.ajax({
+		url: '../php/cargartablaprocedimientos.php',
+		type: 'post',
+		dataType: 'html',
+		data: "idat="+idat+"&idobj="+idobjetivo,
+	})
+	.done(function(respuesta) {
+		$("#procregistrados").html(respuesta);
+		$(".linkborrarp").click(function(){
+			var idprocedimiento = $(this).attr("id");
+			borrarprocedimiento(idprocedimiento);
+		});			
+	})
+	.fail(function() {
+		console.log("error");
+	});	
 }

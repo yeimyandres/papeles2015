@@ -1,3 +1,20 @@
+function borrarasignacion(idat)
+{
+	$.ajax({
+		url: '../php/eliminarasignacion.php',
+		type: 'post',
+		dataType: 'html',
+		data: "idat="+idat,
+	})
+	.done(function(respuesta) {
+		alert(respuesta);
+		cargartablaasignacion();
+		limpiarasignacion();
+	})
+	.fail(function() {
+		console.log("error");
+	});				
+}
 function limpiarasignacion()
 {
 	$("#txtidat").val("");
@@ -36,6 +53,10 @@ function cargartablaasignacion()
 	.done(function(respuesta) {
 		$("#atregistradas").html(respuesta);
 		limpiarasignacion();
+		$(".linkborrara").click(function(){
+			var idat = $(this).attr("id");
+			borrarasignacion(idat);
+		});			
 	})
 	.fail(function() {
 		console.log("error");

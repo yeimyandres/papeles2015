@@ -58,8 +58,9 @@
 		$(document).ready(function(){
 			$("#cboasignacionesenp").change(function(){
 				var idasignacion = $(this).val();
+				reiniciarformularioproc();
 				if(idasignacion==0){
-					reiniciarformularioproc();
+					$("#procregistrados").hide();
 				}else{
 					traerobjetivos(idasignacion);
 				}
@@ -68,8 +69,11 @@
 				var idasignacion = $(this).val();
 				if(idasignacion==0){
 					$("#controlesenobjetivos").css("display","none");
+					$("#objregistrados").css("display","none");
 				}else{
 					$("#controlesenobjetivos").css("display","block");
+					$("#objregistrados").css("display","block");
+					cargartablaobjetivos(idasignacion);
 				}				
 			});
 			$("#btnregistrarat").click(function(){
@@ -86,28 +90,27 @@
 				cadena += "&numobjetivo="+$("#txtnumobjetivo").val();
 				cadena += "&descobjetivo="+$("#txtdescobjetivo").val();
 				registrarobjetivo(cadena);
-			});			
+			});
+			$("#btnregistrarproc").click(function(){
+				var cadena = "idobj="+$("#cboobjetivos").val();
+				cadena += "&numproc="+$("#txtnumprocedimiento").val();
+				cadena += "&descproc="+$("#txtdescprocedimiento").val();
+				cadena += "&feciniproc="+$("#txtfeciniprocedimiento").val();
+				cadena += "&fecfinproc="+$("#txtfecfinprocedimiento").val();
+				registrarprocedimiento(cadena);
+			});				
 			$(".linkborrara").click(function(){
 				var idat = $(this).attr("id");
-				$.ajax({
-					url: '../php/eliminarasignacion.php',
-					type: 'post',
-					dataType: 'html',
-					data: "idat="+idat,
-				})
-				.done(function(respuesta) {
-					alert(respuesta);
-					cargartablaasignaciones();
-					limpiarasignacion();
-				})
-				.fail(function() {
-					console.log("error");
-				});				
+				borrarasignacion(idat);
 			});
 			$(".linkborraro").click(function(){
 				var idobjetivo = $(this).attr("id");
 				borrarobjetivo(idobjetivo);
-			});			
+			});
+			$(".linkborrarp").click(function(){
+				var idprocedimiento = $(this).attr("id");
+				borrarprocedimiento(idprocedimiento);
+			});				
 		});
 
 	</script>

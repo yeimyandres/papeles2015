@@ -1,6 +1,5 @@
 function borrarobjetivo(idobjetivo)
 {
-	alert("id de objetivo = "+idobjetivo);
 	$.ajax({
 		url: '../php/eliminarobjetivo.php',
 		type: 'post',
@@ -9,7 +8,7 @@ function borrarobjetivo(idobjetivo)
 	})
 	.done(function(respuesta) {
 		alert(respuesta);
-		cargartablaobjetivos();
+		cargartablaobjetivos($("#cboasignacioneseno").val());
 	})
 	.fail(function() {
 		console.log("error");
@@ -21,6 +20,7 @@ function limpiarobjetivo()
 	$("#txtnumobjetivo").val("");
 	$("#txtdescobjetivo").val("");
 	$("#controlesenobjetivos").css("display","none");
+	$("#objregistrados").css("display","none");
 	$("#cboasignacioneseno").val(0);
 	$("#cboasignacioneseno").focus();	
 }
@@ -35,7 +35,6 @@ function registrarobjetivo(cadena)
 	})
 	.done(function(respuesta) {
 		alert("Registro adicionado exitosamente");
-		cargartablaobjetivos();
 		limpiarobjetivo();
 	})
 	.fail(function() {
@@ -43,16 +42,16 @@ function registrarobjetivo(cadena)
 	});	
 }
 
-function cargartablaobjetivos()
+function cargartablaobjetivos(idat)
 {
 	$.ajax({
 		url: '../php/cargartablaobjetivos.php',
 		type: 'post',
 		dataType: 'html',
+		data: "idat="+idat,
 	})
 	.done(function(respuesta) {
 		$("#objregistrados").html(respuesta);
-		limpiarobjetivo();
 		$(".linkborraro").click(function(){
 			var idobjetivo = $(this).attr("id");
 			borrarobjetivo(idobjetivo);
