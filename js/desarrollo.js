@@ -1,43 +1,50 @@
-function reiniciarformularioproc(){
-	$("#listaobjetivosenproc").hide();
-	$("#txtnumprocedimiento").val("");
+function reiniciarformulariodes(){
+	$("#listaobjetivosend").hide();
+	$("#listaprocedimientosend").hide();
+	$("#tipodesarrollo").hide();
+/*	$("#txtnumprocedimiento").val("");
 	$("#txtdescprocedimiento").val("");
 	$("#txtfeciniprocedimiento").val("");
-	$("#txtfecfinprocedimiento").val("");
-	$("#camposdetextoenproc").hide();
-	$("#procregistrados").hide();
+	$("#txtfecfinprocedimiento").val("");*/
+	$("#camposdetextoend").hide();
+	$("#desregistrados").hide();
+}
+
+function mostrarformulario(){
+
+	
+
 }
 
 function traerobjetivos(idasignacion){
 	$.ajax({
-		url: '../php/traerobjetivos.php',
+		url: '../php/traerobjetivos2.php',
 		type: 'POST',
 		dataType: 'html',
 		data: "idasignacion="+idasignacion,
 	})
 	.done(function(resultado) {
 		if(resultado!=""){
-			$("#listaobjetivosenproc").html(resultado);
-			$("#listaobjetivosenproc").css("display","block");
+			$("#listaobjetivosend").html(resultado);
+			$("#listaobjetivosend").show();
 			$("#cboobjetivos").change(function(){
 				var idobjetivo = $(this).val();
 				if (idobjetivo==0){
 					$("#contenidoobjetivo").hide();
-					$("#camposdetextoenproc").hide();
-					$("#procregistrados").hide();
+					$("#listaprocedimientosend").hide();
+					$("#camposdetextoend").hide();
+					$("#desregistrados").hide();
 				}else{
 					$.ajax({
-						url: '../php/presentarobjetivo.php',
+						url: '../php/traerprocedimientos.php',
 						type: 'POST',
 						dataType: 'html',
 						data: "idobjetivo="+idobjetivo,
 					})
-					.done(function(resultado2) {
-						$("#contenidoobjetivo").html(resultado2);
-						$("#contenidoobjetivo").show();
-						$("#camposdetextoenproc").show();
-						cargartablaprocedimientos(idasignacion,idobjetivo);
-						$("#procregistrados").show();
+					.done(function(resultado2){
+						$("#listaprocedimientosend").html(resultado2);
+						$("#listaprocedimientosend").show();
+						$("#cboprocedimientos").change(mostrarformulario);
 					})
 					.fail(function() {
 						console.log("error");

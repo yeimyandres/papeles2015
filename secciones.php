@@ -37,7 +37,7 @@
 		<section class="contenedor">
 			<?php
 				$seccion = $_GET["id"];
-				include './php/'.$seccion;
+				include './php/'.$seccion.".php";
 			?>
 		</section>
 
@@ -51,9 +51,7 @@
 	</body>
 
 	<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
-	<script type="text/javascript" src="../js/asignaciones.js"></script>
-	<script type="text/javascript" src="../js/objetivos.js"></script>
-	<script type="text/javascript" src="../js/procedimientos.js"></script>
+	<script type="text/javascript" <?php echo "src='../js/".$seccion.".js'"; ?> ></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("#cboasignacionesenp").change(function(){
@@ -76,6 +74,15 @@
 					cargartablaobjetivos(idasignacion);
 				}				
 			});
+			$("#cboasignacionesend").change(function(){
+				var idasignacion = $(this).val();
+				reiniciarformulariodes();
+				if(idasignacion==0){
+					$("#desregistrados").hide();
+				}else{
+					traerobjetivos(idasignacion);
+				}				
+			});			
 			$("#btnregistrarat").click(function(){
 				var cadena = "idat="+$("#txtidat").val();
 				cadena += "&actividad="+$("#txtactividadat").val();

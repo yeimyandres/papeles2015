@@ -4,4 +4,4 @@ RewriteEngine on
 # Reescribir la URL solicitada por el usuario
 #   Entrada:  clientes/NOMBRE/
 #   Salida: clientes.php?id=NOMBRE
-RewriteRule ^secciones/(\w+)/?$ secciones.php?id=$1.php
+RewriteRule ^secciones/(\w+)/?$ secciones.php?id=$1

@@ -22,10 +22,10 @@
 				echo "</tr>";
 				while($registro = mysqli_fetch_row($resultado)){
 					echo "<tr>";
-					echo "<td class='id'>".$registro[0].": ".utf8_encode($registro[1])."</td>";
-					echo "<td class='objetivo'>Objetivo ".$registro[2].": ".utf8_encode($registro[3])."</td>";
-					echo "<td class='procedimiento'>".utf8_encode($registro[4]).": ".utf8_encode($registro[5])."</td>";
-					echo "<td class='fecini'><a class='linkborrarp' id='$registro[6]'>Borrar</a></td>";
+					echo "<td class='id'><b>AT ".$registro[0].": </b>".utf8_encode($registro[1])."</td>";
+					echo "<td class='objetivo'><b>Objetivo ".$registro[2].": </b>".utf8_encode($registro[3])."</td>";
+					echo "<td class='procedimiento'><b>".utf8_encode($registro[4]).": </b>".utf8_encode($registro[5])."</td>";
+					echo "<td class='enlaceborrar'><a class='linkborrarp' id='$registro[6]'>Borrar</a></td>";
 					echo "</tr>";
 				}
 				echo "</table>";
