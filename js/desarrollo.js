@@ -10,10 +10,8 @@ function reiniciarformulariodes(){
 	$("#desregistrados").hide();
 }
 
-function mostrarformulario(){
-
-	
-
+function opcionesdesarrollo(tipodesarrollo){
+	alert("Seleccionó la opción: "+tipodesarrollo);
 }
 
 function traerobjetivos(idasignacion){
@@ -44,7 +42,20 @@ function traerobjetivos(idasignacion){
 					.done(function(resultado2){
 						$("#listaprocedimientosend").html(resultado2);
 						$("#listaprocedimientosend").show();
-						$("#cboprocedimientos").change(mostrarformulario);
+						$("#cboprocedimientos").change(function(){
+							var idprocedimiento = $(this).val();
+							if(idprocedimiento==0)
+							{
+								$("#tipodesarrollo").hide();
+								$("#camposdetextoend").hide();
+							}else{
+								$("#tipodesarrollo").show();
+								$("#cbotiposdesarrollo").change(function(){
+									var tipodesarrollo = $(this).val();
+									opcionesdesarrollo(tipodesarrollo);
+								});
+							}
+						});
 					})
 					.fail(function() {
 						console.log("error");

@@ -40,22 +40,44 @@
 	<div id="tipodesarrollo">
 		<?php
 
-			
+			$cadenaSQL = "SELECT * FROM tiposdedesarrollo ORDER BY desctipodesarrollo";
+			if($resultado = mysqli_query($enlace,$cadenaSQL))
+			{
+				if (mysqli_affected_rows($enlace)>=1){
+					echo "<label for='cbotiposdesarrollo'>Tipo de avance de papel de trabajo</label>";
+					echo "<select class='largo' id='cbotiposdesarrollo' name='cbotiposdesarrollo'>";
+					echo "<option value='0'>Seleccione una tipo de avance existente</option>";
+					while($registro=mysqli_fetch_row($resultado)){
+						echo "<option value='$registro[0]'>";
+						echo utf8_encode($registro[1]);
+						echo "</option>";
+					}
+					echo "</select>";
+				}else{
+					echo "<p>No existen tipos de avance registrados</p>";
+				}
+			}
 
 		?>
 	</div>
 
 	<div id="camposdetextoend">
-		<label for="txtnumprocedimiento">Procedimiento No.</label>
-		<input type="text" class="corto" id="txtnumprocedimiento" name="txtnumprocedimiento" />
-		<label for="txtdescprocedimiento">Descripción del Procedimiento</label>
-		<textarea class="largo" name="txtdescprocedimiento" id="txtdescprocedimiento" rows="7"></textarea>
-		<label for="txtfeciniprocedimiento">Fecha inicial</label>
-		<input class="corto" type="date" id="txtfeciniprocedimiento" name="txtfeciniprocedimiento" />
-		<label for="txtfecfinprocedimiento">Fecha final</label>
-		<input class="corto" type="date" id="txtfecfinprocedimiento" name="txtfecfinprocedimiento" />
-		<input type="button" id="btnregistrarproc" name="btnregistrarproc" value="Registrar Procedimiento" />
-		<input type="reset" value="Limpiar campos" />		
+		<div id="general">
+			<input type="text">
+		</div>
+		<div id="comunicacion">
+			<input type="text">
+		</div>
+		<div id="analisis">
+			<input type="text">
+		</div>
+		<div id="hallazgo">
+			<input type="text">
+		</div>
+		<div id="botones">
+			<input type="button" id="btnregistrarproc" name="btnregistrarproc" value="Registrar Procedimiento" />
+			<input type="reset" value="Limpiar campos" />
+		</div>
 	</div>
 
 </form>
