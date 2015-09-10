@@ -2,16 +2,41 @@ function reiniciarformulariodes(){
 	$("#listaobjetivosend").hide();
 	$("#listaprocedimientosend").hide();
 	$("#tipodesarrollo").hide();
-/*	$("#txtnumprocedimiento").val("");
-	$("#txtdescprocedimiento").val("");
-	$("#txtfeciniprocedimiento").val("");
-	$("#txtfecfinprocedimiento").val("");*/
-	$("#camposdetextoend").hide();
+	$("#desarrollogeneral").hide();
+	$("#comunicarobservacion").hide();
+	$("#validarrespuesta").hide();
+	$("#configurarhallazgo").hide();
+	$("#botonesend").hide();
 	$("#desregistrados").hide();
 }
 
+function reiniciaropciones(){
+	$("#desarrollogeneral").hide();
+	$("#comunicarobservacion").hide();
+	$("#validarrespuesta").hide();
+	$("#configurarhallazgo").hide();
+	$("#botonesend").hide();	
+}
+
 function opcionesdesarrollo(tipodesarrollo){
-	alert("Seleccionó la opción: "+tipodesarrollo);
+	reiniciaropciones();
+	switch(tipodesarrollo){
+		case '0':
+			break;
+		case '1':
+			$("#desarrollogeneral").show();
+			break;
+		case '2':
+			$("#comunicarobservacion").show();
+			break;
+		case '3':
+			$("#validarrespuesta").show();
+			break;
+		case '4':
+			$("#configurarhallazgo").show();
+			break;
+	}
+	$("#botonesend").Show();
 }
 
 function traerobjetivos(idasignacion){

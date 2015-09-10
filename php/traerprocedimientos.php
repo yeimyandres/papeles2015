@@ -9,6 +9,7 @@
 	if($resultado = mysqli_query($enlace,$cadenaSQL))
 	{
 		if (mysqli_affected_rows($enlace)>=1){
+			echo "<label for='cboprocedimientos'>Procedimientos</label>";
 			echo "<select class='largo' id='cboprocedimientos' name='cboprocedimientos'>";
 			echo "<option value='0'>Seleccione un procedimiento existente</option>";
 			while($registro=mysqli_fetch_row($resultado)){

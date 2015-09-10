@@ -61,26 +61,45 @@
 		?>
 	</div>
 
-	<div id="camposdetextoend">
-		<div id="general">
-			<input type="text">
-		</div>
-		<div id="comunicacion">
-			<input type="text">
-		</div>
-		<div id="analisis">
-			<input type="text">
-		</div>
-		<div id="hallazgo">
-			<input type="text">
-		</div>
-		<div id="botones">
-			<input type="button" id="btnregistrarproc" name="btnregistrarproc" value="Registrar Procedimiento" />
-			<input type="reset" value="Limpiar campos" />
-		</div>
+	<div id="desarrollogeneral">
+		<label for="txtdesarrollogeneral">Avance</label>
+		<textarea class="largo" name="txtdesarrollogeneral" id="txtdesarrollogeneral" rows="10"></textarea>
+	</div>
+
+	<div id="comunicarobservacion">
+		<label for="txtcriterio"></label>
+		<input type="text" id="txtcriterio" name="txtcriterio" />
+		<label for="txtfuentedecriterio"></label>
+		<input type="text" id="txtfuentedecriterio" name="txtfuentedecriterio" />
+		<label for="txtcondicion"></label>
+		<input type="text" id="txtcondicion" name="txtcondicion" />
+		<label for="txtcausa"></label>
+		<input type="text" id="txtcausa" name="txtcausa" />
+		<label for="txtefecto"></label>
+		<input type="text" id="txtefecto" name="txtefecto" />
+		<label for="cboincidencias">Incidencias</label>
+		<input type="checkbox" id="lstincidencia" value="1" />Disciplinaria
+		<input type="checkbox" id="lstincidencia" value="2" />Fiscal
+		<input type="checkbox" id="lstincidencia" value="3" />Penal
+	</div>
+
+	<div id="validarrespuesta">
+		<label for="txtvalidarrespuesta"></label>
+		<input type="text" id="txtvalidarrespuesta" name="txtvalidarrespuesta" />
+	</div>
+
+	<div id="configurarhallazgo">
+		<label for="txtconfigurarhallazgo"></label>
+		<input type="text" id="txtconfigurarhallazgo" name="txtconfigurarhallazgo" />
+	</div>
+
+	<div id="botonesend">
+		<input type="button" id="btnregistrarproc" name="btnregistrarproc" value="Registrar Procedimiento" />
+		<input type="reset" value="Limpiar campos" />
 	</div>
 
 </form>
+
 <div id="desregistrados" class="tablaresumen">
 
 </div>
