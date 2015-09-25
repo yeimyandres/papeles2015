@@ -40,19 +40,14 @@
 	<div id="tipodesarrollo">
 		<?php
 
-			$cadenaSQL = "SELECT * FROM tiposdedesarrollo ORDER BY desctipodesarrollo";
+			$cadenaSQL = "SELECT * FROM tiposdedesarrollo";
 			if($resultado = mysqli_query($enlace,$cadenaSQL))
 			{
-				if (mysqli_affected_rows($enlace)>=1){
-					echo "<label for='cbotiposdesarrollo'>Tipo de avance de papel de trabajo</label>";
-					echo "<select class='largo' id='cbotiposdesarrollo' name='cbotiposdesarrollo'>";
-					echo "<option value='0'>Seleccione una tipo de avance existente</option>";
+				if (mysqli_affected_rows($enlace)>=1)
+				{
 					while($registro=mysqli_fetch_row($resultado)){
-						echo "<option value='$registro[0]'>";
-						echo utf8_encode($registro[1]);
-						echo "</option>";
+						echo "<input type='radio' id='radiotipos' name='radiotipos' value='".$registro[0]."' />".utf8_encode($registro[1])."<br />";
 					}
-					echo "</select>";
 				}else{
 					echo "<p>No existen tipos de avance registrados</p>";
 				}
@@ -61,30 +56,33 @@
 		?>
 	</div>
 
+	<input type="hidden" id="txtselecciondllo" name="txtselecciondllo" /> 
+
 	<div id="desarrollogeneral">
-		<label for="txtdesarrollogeneral">Avance</label>
-		<textarea class="largo" name="txtdesarrollogeneral" id="txtdesarrollogeneral" rows="10"></textarea>
+		<label for="txtdesarrollogeneral">Avance de Procedimiento</label>
+		<textarea class="xlargo" name="txtdesarrollogeneral" id="txtdesarrollogeneral" rows="5"></textarea>
 	</div>
 
 	<div id="comunicarobservacion">
-		<label for="txtcriterio"></label>
-		<input type="text" id="txtcriterio" name="txtcriterio" />
-		<label for="txtfuentedecriterio"></label>
-		<input type="text" id="txtfuentedecriterio" name="txtfuentedecriterio" />
-		<label for="txtcondicion"></label>
-		<input type="text" id="txtcondicion" name="txtcondicion" />
-		<label for="txtcausa"></label>
-		<input type="text" id="txtcausa" name="txtcausa" />
-		<label for="txtefecto"></label>
-		<input type="text" id="txtefecto" name="txtefecto" />
-		<label for="cboincidencias">Incidencias</label>
-		<input type="checkbox" id="lstincidencia" value="1" />Disciplinaria
-		<input type="checkbox" id="lstincidencia" value="2" />Fiscal
-		<input type="checkbox" id="lstincidencia" value="3" />Penal
+		<label for="txtcriterio">Criterio(s)</label>
+		<textarea name="txtcriterio" id="txtcriterio" class="xlargo" rows="5"></textarea>
+		<label for="txtfuentedecriterio">Fuente(s) de Criterio</label>
+		<textarea name="txtfuentedecriterio" id="txtfuentedecriterio" class="xlargo" rows="5"></textarea>
+		<label for="txtcondicion">Condición</label>
+		<textarea name="txt" id="txt" class="xlargo" rows="5"></textarea>
+		<label for="txtcausa">Causa</label>
+		<textarea name="txt" id="txt" class="xlargo" rows="5"></textarea>
+		<label for="txtefecto">Efecto</label>
+		<textarea name="txt" id="txt" class="xlargo" rows="5"></textarea>
+		<div class="incidencias">
+			<input type="checkbox" id="optdisciplinaria" />Disciplinaria
+			<input type="checkbox" id="optfiscal" />Fiscal
+			<input type="checkbox" id="optpenal" />Penal
+		</div>
 	</div>
 
 	<div id="validarrespuesta">
-		<label for="txtvalidarrespuesta"></label>
+		<label for="txtvalidarrespuesta">Validación de Respuesta</label>
 		<input type="text" id="txtvalidarrespuesta" name="txtvalidarrespuesta" />
 	</div>
 
@@ -94,7 +92,7 @@
 	</div>
 
 	<div id="botonesend">
-		<input type="button" id="btnregistrarproc" name="btnregistrarproc" value="Registrar Procedimiento" />
+		<input type="button" id="btnregistrardllo" name="btnregistrarproc" value="Registrar Procedimiento" />
 		<input type="reset" value="Limpiar campos" />
 	</div>
 

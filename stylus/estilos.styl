@@ -42,9 +42,11 @@ form
 		padding 3px 5px
 		vertical-align top
 		&.corto
-			width 140px
+			width 20%
 		&.largo
-			width 350px
+			width 35%
+		&.xlargo
+			width 60%
 	label
 		display block
 		font-size .9em
@@ -57,6 +59,9 @@ form
 			margin 2em 1em
 			padding 10px
 			width 200px
+		&[type="radio"]
+			display inline-block
+			margin 0 1em 0 0
 
 header
 	background gris
@@ -127,6 +132,11 @@ nav
 #cboobjetivos
 	margin 0 auto
 
+#comunicarobservacion
+	div.incidencias
+		input
+			display inline-block
+
 #contenidoobjetivo
 	border 1px solid gris
 	display none
@@ -135,6 +145,9 @@ nav
 	width 85%
 	h4
 		margin 0
+
+#controlesenobjetivos
+	display none
 
 #listaprocedimientosend
 	margin 1em 0
@@ -165,10 +178,12 @@ nav
 				width 39%
 			&.objetivo
 				text-align justify
-				width 39%				
+				width 39%
 
-#controlesenobjetivos
-	display none
+#tipodesarrollo
+	text-align left
+	margin 0 auto 1em auto
+	width 250px
 
 .contenedor
 	float right
@@ -179,6 +194,10 @@ nav
 		font-size 1.3em
 		margin 1em 0
 		text-decoration underline		
+
+.incidencias
+	input
+		margin 0 .5em 0 1em
 
 .inicio
 	float right

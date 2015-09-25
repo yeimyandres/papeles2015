@@ -106,6 +106,37 @@
 				cadena += "&fecfinproc="+$("#txtfecfinprocedimiento").val();
 				registrarprocedimiento(cadena);
 			});				
+			$("#btnregistrardllo").click(function(){
+				var tipodllo = $("#txtselecciondllo").val();
+				var cadena = "";
+/*				switch(tipodllo){
+					case '1':
+						cadena += "desarrollo="+$("#txtdesarrollogeneral").val();
+					case '2':
+						cadena += "criterio="+$("#txtcriterio").val();
+						cadena += "&fuentecriterio="+$("#txtfuentedecriterio").val();
+						cadena += "&condicion="+$("#txtcondicion").val();
+						cadena += "&causa="+$("#txtcausa").val();
+						cadena += "&efecto="+$("#txtefecto").val();
+						cadena += "&disciplinaria="+$("#optdisciplinaria").val();
+						cadena += "&fiscal="+$("#optfiscal").val();
+						cadena += "&penal="+$("#optpenal").val();
+					case '3':
+						cadena += "";
+						cadena += "";
+						cadena += "";
+						cadena += "";
+					case '4':
+						cadena += "";
+						cadena += "";
+						cadena += "";
+						cadena += "";
+				}*/
+				var disciplinaria = $("#optdisciplinaria").attr("checked");
+				var fiscal = $("#optfiscal").attr("checked");
+				var penal = $("#optpenal").attr("checked");
+				alert("Valor Disciplinaria: "+disciplinaria+", Valor Fiscal: "+fiscal+", Valor Penal: "+penal);
+			});
 			$(".linkborrara").click(function(){
 				var idat = $(this).attr("id");
 				borrarasignacion(idat);

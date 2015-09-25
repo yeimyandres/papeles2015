@@ -20,23 +20,29 @@ function reiniciaropciones(){
 
 function opcionesdesarrollo(tipodesarrollo){
 	reiniciaropciones();
+	$("#txtselecciondllo").val(tipodesarrollo);
 	switch(tipodesarrollo){
 		case '0':
+			reiniciaropciones();
 			break;
 		case '1':
 			$("#desarrollogeneral").show();
+			$("#botonesend").show();
 			break;
 		case '2':
 			$("#comunicarobservacion").show();
+			$("#botonesend").show();
 			break;
 		case '3':
 			$("#validarrespuesta").show();
+			$("#botonesend").show();
 			break;
 		case '4':
 			$("#configurarhallazgo").show();
+			$("#botonesend").show();
 			break;
 	}
-	$("#botonesend").Show();
+
 }
 
 function traerobjetivos(idasignacion){
@@ -75,7 +81,7 @@ function traerobjetivos(idasignacion){
 								$("#camposdetextoend").hide();
 							}else{
 								$("#tipodesarrollo").show();
-								$("#cbotiposdesarrollo").change(function(){
+								$("input[name='radiotipos']").click(function(){
 									var tipodesarrollo = $(this).val();
 									opcionesdesarrollo(tipodesarrollo);
 								});
